@@ -3,10 +3,10 @@
 <mapper namespace="com.hxc.music.dao.RankDao">
 
     <resultMap type="com.hxc.music.entity.Rank" id="RankMap">
-        <result property="id" column="id" jdbcType="VARCHAR"/>
-        <result property="songlistid" column="songListId" jdbcType="VARCHAR"/>
-        <result property="consumerid" column="consumerId" jdbcType="VARCHAR"/>
-        <result property="score" column="score" jdbcType="VARCHAR"/>
+        <result property="id" column="id" jdbcType="BIGINT"/>
+        <result property="songlistid" column="songListId" jdbcType="BIGINT"/>
+        <result property="consumerid" column="consumerId" jdbcType="BIGINT"/>
+        <result property="score" column="score" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->

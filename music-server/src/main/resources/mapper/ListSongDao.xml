@@ -3,9 +3,9 @@
 <mapper namespace="com.hxc.music.dao.ListSongDao">
 
     <resultMap type="com.hxc.music.entity.ListSong" id="ListSongMap">
-        <result property="id" column="id" jdbcType="VARCHAR"/>
-        <result property="songId" column="song_id" jdbcType="VARCHAR"/>
-        <result property="songListId" column="song_list_id" jdbcType="VARCHAR"/>
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="songId" column="song_id" jdbcType="INTEGER"/>
+        <result property="songListId" column="song_list_id" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->

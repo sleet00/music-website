@@ -3,11 +3,11 @@
 <mapper namespace="com.hxc.music.dao.CollectDao">
 
     <resultMap type="com.hxc.music.entity.Collect" id="CollectMap">
-        <result property="id" column="id" jdbcType="VARCHAR"/>
-        <result property="userId" column="user_id" jdbcType="VARCHAR"/>
-        <result property="type" column="type" jdbcType="INTEGER"/>
-        <result property="songId" column="song_id" jdbcType="VARCHAR"/>
-        <result property="songListId" column="song_list_id" jdbcType="VARCHAR"/>
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="type" column="type" jdbcType="TINYINT"/>
+        <result property="songId" column="song_id" jdbcType="INTEGER"/>
+        <result property="songListId" column="song_list_id" jdbcType="INTEGER"/>
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 

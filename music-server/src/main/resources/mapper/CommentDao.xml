@@ -3,14 +3,14 @@
 <mapper namespace="com.hxc.music.dao.CommentDao">
 
     <resultMap type="com.hxc.music.entity.Comment" id="CommentMap">
-        <result property="id" column="id" jdbcType="VARCHAR"/>
-        <result property="userId" column="user_id" jdbcType="VARCHAR"/>
-        <result property="songId" column="song_id" jdbcType="VARCHAR"/>
-        <result property="songListId" column="song_list_id" jdbcType="VARCHAR"/>
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="songId" column="song_id" jdbcType="INTEGER"/>
+        <result property="songListId" column="song_list_id" jdbcType="INTEGER"/>
         <result property="content" column="content" jdbcType="VARCHAR"/>
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
-        <result property="type" column="type" jdbcType="INTEGER"/>
-        <result property="up" column="up" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="TINYINT"/>
+        <result property="up" column="up" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->

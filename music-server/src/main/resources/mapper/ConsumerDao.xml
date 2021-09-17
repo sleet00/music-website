@@ -3,12 +3,12 @@
 <mapper namespace="com.hxc.music.dao.ConsumerDao">
 
     <resultMap type="com.hxc.music.entity.Consumer" id="ConsumerMap">
-        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="username" column="username" jdbcType="VARCHAR"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>
-        <result property="sex" column="sex" jdbcType="INTEGER"/>
-        <result property="phoneNum" column="phone_num" jdbcType="VARCHAR"/>
-        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" jdbcType="TINYINT"/>
+        <result property="phoneNum" column="phone_num" jdbcType="CHAR"/>
+        <result property="email" column="email" jdbcType="CHAR"/>
         <result property="birth" column="birth" jdbcType="TIMESTAMP"/>
         <result property="introduction" column="introduction" jdbcType="VARCHAR"/>
         <result property="location" column="location" jdbcType="VARCHAR"/>
