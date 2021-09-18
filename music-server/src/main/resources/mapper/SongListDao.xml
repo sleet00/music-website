@@ -6,7 +6,7 @@
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="title" column="title" jdbcType="VARCHAR"/>
         <result property="pic" column="pic" jdbcType="VARCHAR"/>
-        <result property="introduction" column="introduction" jdbcType="TEXT"/>
+        <result property="introduction" column="introduction" jdbcType="LONGVARCHAR"/>
         <result property="style" column="style" jdbcType="VARCHAR"/>
     </resultMap>
 

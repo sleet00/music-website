@@ -10,7 +10,7 @@
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
         <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
         <result property="pic" column="pic" jdbcType="VARCHAR"/>
-        <result property="lyric" column="lyric" jdbcType="TEXT"/>
+        <result property="lyric" column="lyric" jdbcType="LONGVARCHAR"/>
         <result property="url" column="url" jdbcType="VARCHAR"/>
     </resultMap>
 
@@ -23,41 +23,41 @@
     </select>
 
     <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="SongMap">
-        select
-        id, singer_id, name, introduction, create_time, update_time, pic, lyric, url
-        from song
-        <where>
-            <if test="id != null">
-                and id = #{id}
-            </if>
-            <if test="singerId != null">
-                and singer_id = #{singerId}
-            </if>
-            <if test="name != null and name != ''">
-                and name = #{name}
-            </if>
-            <if test="introduction != null and introduction != ''">
-                and introduction = #{introduction}
-            </if>
-            <if test="createTime != null">
-                and create_time = #{createTime}
-            </if>
-            <if test="updateTime != null">
-                and update_time = #{updateTime}
-            </if>
-            <if test="pic != null and pic != ''">
-                and pic = #{pic}
-            </if>
-            <if test="lyric != null and lyric != ''">
-                and lyric = #{lyric}
-            </if>
-            <if test="url != null and url != ''">
-                and url = #{url}
-            </if>
-        </where>
-        limit #{pageable.offset}, #{pageable.pageSize}
-    </select>
+<!--    <select id="queryAllByLimit" resultMap="SongMap">-->
+<!--        select-->
+<!--        id, singer_id, name, introduction, create_time, update_time, pic, lyric, url-->
+<!--        from song-->
+<!--        <where>-->
+<!--            <if test="id != null">-->
+<!--                and id = #{id}-->
+<!--            </if>-->
+<!--            <if test="singerId != null">-->
+<!--                and singer_id = #{singerId}-->
+<!--            </if>-->
+<!--            <if test="name != null and name != ''">-->
+<!--                and name = #{name}-->
+<!--            </if>-->
+<!--            <if test="introduction != null and introduction != ''">-->
+<!--                and introduction = #{introduction}-->
+<!--            </if>-->
+<!--            <if test="createTime != null">-->
+<!--                and create_time = #{createTime}-->
+<!--            </if>-->
+<!--            <if test="updateTime != null">-->
+<!--                and update_time = #{updateTime}-->
+<!--            </if>-->
+<!--            <if test="pic != null and pic != ''">-->
+<!--                and pic = #{pic}-->
+<!--            </if>-->
+<!--            <if test="lyric != null and lyric != ''">-->
+<!--                and lyric = #{lyric}-->
+<!--            </if>-->
+<!--            <if test="url != null and url != ''">-->
+<!--                and url = #{url}-->
+<!--            </if>-->
+<!--        </where>-->
+<!--        limit #{pageable.offset}, #{pageable.pageSize}-->
+<!--    </select>-->
 
     <!--统计总行数-->
     <select id="count" resultType="java.lang.Long">

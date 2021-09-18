@@ -3,26 +3,21 @@ package com.hxc.music.entity;
 import java.io.Serializable;
 
 /**
- * (Admin)实体类
- *
- * @author makejava
- * @since 2021-09-17 15:18:07
+ * 管理员
  */
 public class Admin implements Serializable {
-    private static final long serialVersionUID = -52505562842672890L;
-
-    private Object id;
-
+    /*主键*/
+    private Integer id;
+    /*账号*/
     private String name;
-
+    /*密码*/
     private String password;
 
-
-    public Object getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Object id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -41,6 +36,5 @@ public class Admin implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
 
