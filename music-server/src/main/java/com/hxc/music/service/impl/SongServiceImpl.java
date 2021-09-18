@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * @author makejava
  * @since 2021-09-17 15:18:23
  */
-@Service("songService")
+@Service
 public class SongServiceImpl implements SongService {
     @Resource
     private SongDao songDao;

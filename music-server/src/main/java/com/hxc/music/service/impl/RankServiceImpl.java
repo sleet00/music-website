@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  * @author makejava
  * @since 2021-09-17 15:18:19
  */
-@Service("rankService")
+@Service
 public class RankServiceImpl implements RankService {
     @Resource
     private RankDao rankDao;

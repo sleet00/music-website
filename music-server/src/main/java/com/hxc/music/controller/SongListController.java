@@ -1,11 +1,9 @@
-package
+package com.hxc.music.controller;
 
-.controller;
 
-import .entity.SongList;
-import .service.SongListService;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import com.hxc.music.entity.SongList;
+import com.hxc.music.service.SongListService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,10 +31,10 @@ public class SongListController {
      * @param pageRequest 分页对象
      * @return 查询结果
      */
-    @GetMapping
-    public ResponseEntity<Page<SongList>> queryByPage(SongList songList, PageRequest pageRequest) {
-        return ResponseEntity.ok(this.songListService.queryByPage(songList, pageRequest));
-    }
+//    @GetMapping
+//    public ResponseEntity<Page<SongList>> queryByPage(SongList songList, PageRequest pageRequest) {
+//        return ResponseEntity.ok(this.songListService.queryByPage(songList, pageRequest));
+//    }
 
     /**
      * 通过主键查询单条数据

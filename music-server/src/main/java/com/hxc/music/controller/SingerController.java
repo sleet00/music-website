@@ -1,5 +1,6 @@
 package com.hxc.music.controller;
 
+import com.hxc.music.entity.Singer;
 import com.hxc.music.service.SingerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +30,7 @@ public class SingerController {
      * @return 查询结果
      */
 //    @GetMapping
-//    public ResponseEntity<Page<entity.Singer>> queryByPage(entity.Singer singer, PageRequest pageRequest) {
+//    public ResponseEntity<Page<Singer>> queryByPage(Singer singer, PageRequest pageRequest) {
 //        return ResponseEntity.ok(this.singerService.queryByPage(singer, pageRequest));
 //    }
 
@@ -40,7 +41,7 @@ public class SingerController {
      * @return 单条数据
      */
     @GetMapping("{id}")
-    public ResponseEntity<entity.Singer> queryById(@PathVariable("id") Object id) {
+    public ResponseEntity<Singer> queryById(@PathVariable("id") Object id) {
         return ResponseEntity.ok(this.singerService.queryById(id));
     }
 
@@ -51,7 +52,7 @@ public class SingerController {
      * @return 新增结果
      */
     @PostMapping
-    public ResponseEntity<entity.Singer> add(entity.Singer singer) {
+    public ResponseEntity<Singer> add(Singer singer) {
         return ResponseEntity.ok(this.singerService.insert(singer));
     }
 
@@ -62,7 +63,7 @@ public class SingerController {
      * @return 编辑结果
      */
     @PutMapping
-    public ResponseEntity<entity.Singer> edit(entity.Singer singer) {
+    public ResponseEntity<Singer> edit(Singer singer) {
         return ResponseEntity.ok(this.singerService.update(singer));
     }
 

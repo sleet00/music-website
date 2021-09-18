@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  * @author makejava
  * @since 2021-09-17 15:18:21
  */
-@Service("singerService")
+@Service
 public class SingerServiceImpl implements SingerService {
     @Resource
     private SingerDao singerDao;

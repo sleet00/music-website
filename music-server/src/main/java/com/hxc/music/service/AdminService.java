@@ -12,6 +12,14 @@ import com.hxc.music.entity.Admin;
 public interface AdminService {
 
     /**
+     * 验证密码是否正确
+     * @param name
+     * @param password
+     * @return
+     */
+    public boolean verifyPassword(String name, String password);
+
+    /**
      * 通过ID查询单条数据
      *
      * @param id 主键

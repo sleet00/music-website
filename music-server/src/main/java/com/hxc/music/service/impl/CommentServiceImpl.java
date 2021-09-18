@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  * @author makejava
  * @since 2021-09-17 15:18:15
  */
-@Service("commentService")
+@Service
 public class CommentServiceImpl implements CommentService {
     @Resource
     private CommentDao commentDao;

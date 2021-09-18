@@ -3,6 +3,7 @@ package com.hxc.music.dao;
 import com.hxc.music.entity.Admin;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -12,8 +13,16 @@ import java.util.List;
  * @author makejava
  * @since 2021-09-17 15:18:06
  */
-@Mapper
+@Repository
 public interface AdminDao {
+
+    /**
+     * 验证密码是否正确
+     * @param username
+     * @param password
+     * @return
+     */
+    public int verifyPassword(String username, String password);
 
     /**
      * 通过ID查询单条数据

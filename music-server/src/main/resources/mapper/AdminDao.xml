@@ -8,6 +8,10 @@
         <result property="password" column="password" jdbcType="VARCHAR"/>
     </resultMap>
 
+    <select id="verifyPassword" resultType="java.lang.Integer">
+            select count(*) from admin where name=#{0} and password=#{1};
+    </select>
+
     <!--查询单个-->
     <select id="queryById" resultMap="AdminMap">
         select
@@ -51,6 +55,7 @@
             </if>
         </where>
     </select>
+
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">

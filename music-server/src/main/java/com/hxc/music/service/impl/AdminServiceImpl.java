@@ -4,6 +4,7 @@ package com.hxc.music.service.impl;
 import com.hxc.music.dao.AdminDao;
 import com.hxc.music.entity.Admin;
 import com.hxc.music.service.AdminService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -15,10 +16,23 @@ import javax.annotation.Resource;
  * @author makejava
  * @since 2021-09-17 15:18:11
  */
-@Service("adminService")
+@Service
 public class AdminServiceImpl implements AdminService {
     @Resource
     private AdminDao adminDao;
+
+
+    /**
+     * 验证密码是否正确
+     *
+     * @param name
+     * @param password
+     * @return
+     */
+    @Override
+    public boolean verifyPassword(String name, String password) {
+        return adminDao.verifyPassword(name, password) > 0;
+    }
 
     /**
      * 通过ID查询单条数据
