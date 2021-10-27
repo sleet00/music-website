@@ -12,101 +12,19 @@
         <result property="introduction" column="introduction" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <!--查询单个-->
-    <select id="queryById" resultMap="SingerMap">
-        select
-          id, name, sex, pic, birth, location, introduction
-        from singer
-        where id = #{id}
+    <select id="Base_Column_List">
+        id,name,sex,pic,birth,location,introduction
     </select>
-
-    <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="SingerMap">
-        select
-        id, name, sex, pic, birth, location, introduction
+    <select id="selectByPrimaryKey" resultType="com.hxc.music.entity.Singer">
+        <include refid="Base_Column_List"/>
         from singer
-        <where>
-            <if test="id != null">
-                and id = #{id}
-            </if>
-            <if test="name != null and name != ''">
-                and name = #{name}
-            </if>
-            <if test="sex != null">
-                and sex = #{sex}
-            </if>
-            <if test="pic != null and pic != ''">
-                and pic = #{pic}
-            </if>
-            <if test="birth != null">
-                and birth = #{birth}
-            </if>
-            <if test="location != null and location != ''">
-                and location = #{location}
-            </if>
-            <if test="introduction != null and introduction != ''">
-                and introduction = #{introduction}
-            </if>
-        </where>
-        limit #{pageable.offset}, #{pageable.pageSize}
-    </select>
-
-    <!--统计总行数-->
-    <select id="count" resultType="java.lang.Long">
-        select count(1)
-        from singer
-        <where>
-            <if test="id != null">
-                and id = #{id}
-            </if>
-            <if test="name != null and name != ''">
-                and name = #{name}
-            </if>
-            <if test="sex != null">
-                and sex = #{sex}
-            </if>
-            <if test="pic != null and pic != ''">
-                and pic = #{pic}
-            </if>
-            <if test="birth != null">
-                and birth = #{birth}
-            </if>
-            <if test="location != null and location != ''">
-                and location = #{location}
-            </if>
-            <if test="introduction != null and introduction != ''">
-                and introduction = #{introduction}
-            </if>
-        </where>
+        where id = {id}
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into singer(name, sex, pic, birth, location, introduction)
         values (#{name}, #{sex}, #{pic}, #{birth}, #{location}, #{introduction})
-    </insert>
-
-    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into singer(name, sex, pic, birth, location, introduction)
-        values
-        <foreach collection="entities" item="entity" separator=",">
-            (#{entity.name}, #{entity.sex}, #{entity.pic}, #{entity.birth}, #{entity.location}, #{entity.introduction})
-        </foreach>
-    </insert>
-
-    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into singer(name, sex, pic, birth, location, introduction)
-        values
-        <foreach collection="entities" item="entity" separator=",">
-            (#{entity.name}, #{entity.sex}, #{entity.pic}, #{entity.birth}, #{entity.location}, #{entity.introduction})
-        </foreach>
-        on duplicate key update
-        name = values(name),
-        sex = values(sex),
-        pic = values(pic),
-        birth = values(birth),
-        location = values(location),
-        introduction = values(introduction)
     </insert>
 
     <!--通过主键修改数据-->
@@ -134,10 +52,28 @@
         </set>
         where id = #{id}
     </update>
+    <select id="allSinger" resultType="com.hxc.music.entity.Singer">
+        select
+        <include refid="Base_Column_List"/>
+        from singer
+    </select>
+    <select id="singerOfName" resultType="com.hxc.music.entity.Singer">
+        select
+        <include refid="Base_Column_List"/>
+        from singer
+        where name like #{name}
+    </select>
+    <select id="singerOfSex" resultType="com.hxc.music.entity.Singer">
+        select
+        <include refid="Base_Column_List"/>
+        from singer
+        where sex = {sex}
+    </select>
 
-    <!--通过主键删除-->
-    <delete id="deleteById">
-        delete from singer where id = #{id}
+
+    <delete id="delete">
+        delete from singer
+        where id = {id}
     </delete>
 
 </mapper>

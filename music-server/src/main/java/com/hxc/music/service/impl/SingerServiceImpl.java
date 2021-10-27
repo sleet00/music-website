@@ -6,6 +6,7 @@ import com.hxc.music.service.SingerService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (Singer)表服务实现类
@@ -18,62 +19,41 @@ public class SingerServiceImpl implements SingerService {
     @Resource
     private SingerDao singerDao;
 
-    /**
-     * 通过ID查询单条数据
-     *
-     * @param id 主键
-     * @return 实例对象
-     */
+
     @Override
-    public Singer queryById(Object id) {
-        return this.singerDao.queryById(id);
+    public boolean insert(Singer singer) {
+        return singerDao.insert(singer) > 0;
     }
 
-    /**
-     * 分页查询
-     *
-     * @param singer      筛选条件
-     * @param pageRequest 分页对象
-     * @return 查询结果
-     */
-//    @Override
-//    public Page<Singer> queryByPage(Singer singer, PageRequest pageRequest) {
-//        long total = this.singerDao.count(singer);
-//        return new PageImpl<>(this.singerDao.queryAllByLimit(singer, pageRequest), pageRequest, total);
-//    }
-
-    /**
-     * 新增数据
-     *
-     * @param singer 实例对象
-     * @return 实例对象
-     */
     @Override
-    public Singer insert(Singer singer) {
-        this.singerDao.insert(singer);
-        return singer;
+    public boolean update(Singer singer) {
+        return singerDao.update(singer) > 0;
     }
 
-    /**
-     * 修改数据
-     *
-     * @param singer 实例对象
-     * @return 实例对象
-     */
     @Override
-    public Singer update(Singer singer) {
-        this.singerDao.update(singer);
-        return this.queryById(singer.getId());
+    public boolean delete(Integer id) {
+        return singerDao.delete(id) > 0;
     }
 
-    /**
-     * 通过主键删除数据
-     *
-     * @param id 主键
-     * @return 是否成功
-     */
     @Override
-    public boolean deleteById(Object id) {
-        return this.singerDao.deleteById(id) > 0;
+    public Singer selectByPrimaryKey(Integer id) {
+        return singerDao.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<Singer> allSinger() {
+        return singerDao.allSinger();
+    }
+
+    @Override
+    public List<Singer> singerOfName(String name) {
+        return singerDao.singerOfName(name);
+    }
+
+    @Override
+    public List<Singer> singerOfSex(Integer sex) {
+        return singerDao.singerOfSex(sex);
     }
 }
+
+

@@ -3,6 +3,8 @@ package com.hxc.music.service;
 
 import com.hxc.music.entity.Singer;
 
+import java.util.List;
+
 /**
  * (Singer)表服务接口
  *
@@ -12,44 +14,47 @@ import com.hxc.music.entity.Singer;
 public interface SingerService {
 
     /**
-     * 通过ID查询单条数据
-     *
-     * @param id 主键
-     * @return 实例对象
-     */
-    Singer queryById(Object id);
-
-    /**
-     * 分页查询
-     *
-     * @param singer      筛选条件
-     * @param pageRequest 分页对象
-     * @return 查询结果
-     */
-//    Page<Singer> queryByPage(Singer singer, PageRequest pageRequest);
-
-    /**
      * 新增数据
      *
      * @param singer 实例对象
-     * @return 实例对象
+     * @return 影响行数
      */
-    Singer insert(Singer singer);
+    public boolean insert(Singer singer);
 
     /**
      * 修改数据
      *
      * @param singer 实例对象
-     * @return 实例对象
+     * @return 影响行数
      */
-    Singer update(Singer singer);
+    public boolean update(Singer singer);
 
     /**
-     * 通过主键删除数据
+     * 删除
      *
      * @param id 主键
-     * @return 是否成功
+     * @return 影响行数
      */
-    boolean deleteById(Object id);
+    public boolean delete(Integer id);
+
+    /**
+     * 根据主键查询整个对象
+     */
+    public Singer selectByPrimaryKey(Integer id);
+
+    /**
+     * 查询所有歌手
+     */
+    public List<Singer> allSinger();
+
+    /**
+     * 根据歌手名字模糊查询列表
+     */
+    public List<Singer> singerOfName(String name);
+
+    /**
+     * 根据性别查询
+     */
+    public List<Singer> singerOfSex(Integer sex);
 
 }

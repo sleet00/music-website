@@ -14,31 +14,6 @@ import java.util.List;
 public interface SingerDao {
 
     /**
-     * 通过ID查询单条数据
-     *
-     * @param id 主键
-     * @return 实例对象
-     */
-    Singer queryById(Object id);
-
-    /**
-     * 查询指定行数据
-     *
-     * @param singer   查询条件
-     * @param pageable 分页对象
-     * @return 对象列表
-     */
-//    List<Singer> queryAllByLimit(Singer singer, @Param("pageable") Pageable pageable);
-
-    /**
-     * 统计总行数
-     *
-     * @param singer 查询条件
-     * @return 总行数
-     */
-    long count(Singer singer);
-
-    /**
      * 新增数据
      *
      * @param singer 实例对象
@@ -47,37 +22,43 @@ public interface SingerDao {
     int insert(Singer singer);
 
     /**
-     * 批量新增数据（MyBatis原生foreach方法）
-     *
-     * @param entities List<Singer> 实例对象列表
-     * @return 影响行数
-     */
-    int insertBatch(@Param("entities") List<Singer> entities);
-
-    /**
-     * 批量新增或按主键更新数据（MyBatis原生foreach方法）
-     *
-     * @param entities List<Singer> 实例对象列表
-     * @return 影响行数
-     * @throws org.springframework.jdbc.BadSqlGrammarException 入参是空List的时候会抛SQL语句错误的异常，请自行校验入参
-     */
-    int insertOrUpdateBatch(@Param("entities") List<Singer> entities);
-
-    /**
      * 修改数据
      *
      * @param singer 实例对象
      * @return 影响行数
      */
-    int update(Singer singer);
+    public int update(Singer singer);
 
     /**
-     * 通过主键删除数据
+     * 删除
      *
      * @param id 主键
      * @return 影响行数
      */
-    int deleteById(Object id);
+    public int delete(Integer id);
+
+    /**
+     * 根据主键查询整个对象
+     */
+    public Singer selectByPrimaryKey(Integer id);
+
+    /**
+     * 查询所有歌手
+     */
+    public List<Singer> allSinger();
+
+    /**
+     * 根据歌手名字模糊查询列表
+     */
+    public List<Singer> singerOfName(String name);
+
+    /**
+     * 根据性别查询
+     */
+    public List<Singer> singerOfSex(Integer Sex);
+
+
+
 
 }
 

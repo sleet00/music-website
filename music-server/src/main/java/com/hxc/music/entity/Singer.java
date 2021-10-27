@@ -12,11 +12,11 @@ import java.io.Serializable;
 public class Singer implements Serializable {
     private static final long serialVersionUID = -18402570795612236L;
 
-    private Object id;
+    private Integer id;
 
     private String name;
 
-    private Integer sex;
+    private Byte sex;
 
     private String pic;
 
@@ -27,12 +27,20 @@ public class Singer implements Serializable {
     private String introduction;
 
 
-    public Object getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Object id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Byte getSex() {
+        return sex;
+    }
+
+    public void setSex(Byte sex) {
+        this.sex = sex;
     }
 
     public String getName() {
@@ -43,13 +51,7 @@ public class Singer implements Serializable {
         this.name = name;
     }
 
-    public Integer getSex() {
-        return sex;
-    }
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
-    }
 
     public String getPic() {
         return pic;
